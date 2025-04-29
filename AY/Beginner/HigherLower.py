@@ -1,4 +1,10 @@
-data = [
+# Higher Lower Game
+# Compare Neymar's Instagram followers with Cristiano Ronaldo's followers
+# Get the data from the Instagram account
+
+import random
+
+game_data = [
     {
         'name': 'Instagram',
         'follower_count': 346,
@@ -300,3 +306,53 @@ data = [
         'country': 'United States'
     }
 ]
+
+# Higher Lower Game using game_data
+def higher_lower_game():
+    print("Welcome to the Higher Lower Game!")
+    print("Compare Instagram followers between two entities.\n")
+
+    # Keep track of the score
+    score = 0
+    game_should_continue = True
+
+    # Start with a random choice
+    current_choice = random.choice(game_data)
+
+    while game_should_continue:
+        # Select another random choice
+        next_choice = random.choice(game_data)
+
+        # Ensure the next choice is not the same as the current
+        while next_choice == current_choice:
+            next_choice = random.choice(game_data)
+
+        # Display details of the current and next choices
+        print(f"Compare A: {current_choice['name']}, {current_choice['description']}, from {current_choice['country']}.")
+        print(f"Against B: {next_choice['name']}, {next_choice['description']}, from {next_choice['country']}.")
+
+        # Ask user to guess
+        guess = input("Who has more followers? Type 'A' or 'B': ").strip().upper()
+
+        # Determine the correct answer
+        if current_choice['follower_count'] > next_choice['follower_count']:
+            correct_answer = 'A'
+        else:
+            correct_answer = 'B'
+
+        # Check user's guess
+        if guess == correct_answer:
+            score += 1
+            print(f"You're right! Current score: {score}.\n")
+            # Update the current choice to the winner
+            current_choice = next_choice if correct_answer == 'B' else current_choice
+        else:
+            print(f"Sorry, that's wrong. Final score: {score}.\n")
+            game_should_continue = False
+
+    print("Thanks for playing the Higher Lower Game!")
+
+# Run the game
+higher_lower_game()
+
+
