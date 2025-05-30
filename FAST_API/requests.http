@@ -4,4 +4,7 @@
 GET {{baseUrl}}/
 
 ###
-GET {{baseUrl}}/items/1
+GET {{baseUrl}}/about
+
+###
+GET {{baseUrl}}/view
