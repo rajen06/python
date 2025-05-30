@@ -8,3 +8,9 @@ GET {{baseUrl}}/about
 
 ###
 GET {{baseUrl}}/view
+
+###
+GET {{baseUrl}}/patient/P006
+
+###
+GET {{baseUrl}}/sort?sort_by=height
